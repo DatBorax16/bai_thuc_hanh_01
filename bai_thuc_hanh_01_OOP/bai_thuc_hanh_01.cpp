@@ -172,7 +172,11 @@ class baiXe {
 class SystemInterFace {
 	private:
 		baiXe bai1, bai2, bai3;
-		bool co1, co2, co3;		
+		bool co1, co2, co3;
+	public:
+		SystemInterFace() {
+			co1 = co2 = co3 = false;
+		}
 };
 
 int main() {
