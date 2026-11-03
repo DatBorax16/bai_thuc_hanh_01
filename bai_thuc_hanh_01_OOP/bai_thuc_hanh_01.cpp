@@ -117,17 +117,17 @@ class baiXe {
 			return maBai;
 		}
 		bool them(phuongTien v) {
-			if(c01 == true) {
+			if(co1 == true) {
 				pt1 = v;
 				co1 = true;
 				return true;
 			}
-			if(c02 == true) {
+			if(co2 == true) {
 				pt1 = v;
 				co1 = true;
 				return true;
 			}
-			if(c03 == true) {
+			if(co3 == true) {
 				pt1 = v;
 				co1 = true;
 				return true;
