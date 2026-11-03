@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+using namespace std;
 class phuongTien {
 	private: 
 		int maXe;
@@ -83,18 +83,20 @@ class phuongTien {
 			if(thoiGianDo >= 3) {
 				if(loaiXe == "Car" || loaiXe == "car") {
 					phi = (6.00 * 2) - ((6.00 * 2 * 30) / 100);
-					phi += (6.00 * (thoiGianDo - 2)) - ((6.00 * ((thoiGianDo - 2) * 10) / 100);
+					phi += (6.00 * (thoiGianDo - 2)) - (6.00 * ((thoiGianDo - 2) * 10) / 100);
 				}
 				else if(loaiXe == "Motorcycle" || loaiXe == "Motorcycle") {
 					phi = (4.00 * 2) - ((4.00 * 2 * 30) / 100);
-					phi += (4.00 * (thoiGianDo - 2)) - ((4.00 * ((thoiGianDo - 2) * 10) / 100);
+					phi += (4.00 * (thoiGianDo - 2)) - (4.00 * ((thoiGianDo - 2) * 10) / 100);
 				}
 				else if(loaiXe == "Bicycle" || loaiXe == "bicycle") {
 					phi = (2.00 * 2) - ((2.00 * 2 * 30) / 100);
-					phi += (2.00 * (thoiGianDo - 2)) - ((2.00 * ((thoiGianDo - 2) * 10) / 100);
+					phi += (2.00 * (thoiGianDo - 2)) - (2.00 * ((thoiGianDo - 2) * 10) / 100);
 				}
 			}
 			return phi;
+		}
+		void hienThi() const{
 		}
 };
 class baiXe {
@@ -151,7 +153,7 @@ class baiXe {
     		if (co3 && pt3.layMaXe() == maXe) return true;
     		return false;
 		}
-		void hienThi const{
+		void hienThi() const{
 			int cap = (kichThuoc == 'S') ? 1 : (kichThuoc == 'M') ? 2 : 3;
     		int soXe = co1 + co2 + co3;
     		cout << "Bai " << maBai << " [" << kichThuoc << "] " << soXe << "/" << cap << " xe\n";
@@ -167,4 +169,12 @@ class baiXe {
     		return dem > 0;
 		}
 };		
+class SystemInterFace {
+	private:
+		baiXe bai1, bai2, bai3;
+		bool co1, co2, co3;		
+};
+
+int main() {
 	
+}
