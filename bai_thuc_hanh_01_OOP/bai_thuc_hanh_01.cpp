@@ -118,21 +118,53 @@ class baiXe {
 			return maBai;
 		}
 		bool them(phuongTien v) {
-			if(co1 == true) {
-				pt1 = v;
-				co1 = true;
-				return true;
-			}
-			if(co2 == true) {
-				pt1 = v;
-				co1 = true;
-				return true;
-			}
-			if(co3 == true) {
-				pt1 = v;
-				co1 = true;
-				return true;
-			}
+			int cap = (kichThuoc == 'S') ? 1 : (kichThuoc == 'M') ? 2 : 3;
+			if (cap >= 1 && !co1) { pt1 = v; co1 = true; return true; }
+    		if (cap >= 2 && !co2) { pt2 = v; co2 = true; return true; }
+    		if (cap >= 3 && !co3) { pt3 = v; co3 = true; return true; }
+			return false;
+		}
+		bool xoa(int maXe) {
+			if (co1 && pt1.layMaXe() == maXe) {
+        		if (co2) {
+            		pt1 = pt2;
+            		if (co3) { pt2 = pt3; co3 = false; }
+            		else co2 = false;
+        		} 
+				else co1 = false;
+        		return true;
+    		}
+    		if (co2 && pt2.layMaXe() == maXe) {
+        		if (co3) { pt2 = pt3; co3 = false; }
+        		else co2 = false;
+        		return true;
+    		}
+    		if (co3 && pt3.layMaXe() == maXe) {
+        		co3 = false;
+        		return true;
+    		}
+			return false;
+		}
+		bool chua(int maXe) const{
+			if (co1 && pt1.layMaXe() == maXe) return true;
+    		if (co2 && pt2.layMaXe() == maXe) return true;
+    		if (co3 && pt3.layMaXe() == maXe) return true;
+    		return false;
+		}
+		void hienThi const{
+			int cap = (kichThuoc == 'S') ? 1 : (kichThuoc == 'M') ? 2 : 3;
+    		int soXe = co1 + co2 + co3;
+    		cout << "Bai " << maBai << " [" << kichThuoc << "] " << soXe << "/" << cap << " xe\n";
+    		if (co1) pt1.hienThi();
+    		if (co2) pt2.hienThi();
+    		if (co3) pt3.hienThi();
+		}
+		bool coLoai(string loai, int& dem, double& tong) const {
+    		dem = 0; tong = 0;
+    		if (co1 && pt1.layLoaiXe() == loai) { ++dem; tong += pt1.tinhPhiDoXe(); }
+    		if (co2 && pt2.layLoaiXe() == loai) { ++dem; tong += pt2.tinhPhiDoXe(); }
+    		if (co3 && pt3.layLoaiXe() == loai) { ++dem; tong += pt3.tinhPhiDoXe(); }
+    		return dem > 0;
 		}
 };		
 	
